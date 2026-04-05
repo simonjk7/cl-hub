@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CL — Projects</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f0f10;
+      --surface: #1a1a1d;
+      --border: #2a2a2e;
+      --accent: #7c6ef7;
+      --text: #e8e8ea;
+      --text-muted: #6b6b72;
+      --radius: 14px;
+      --tag-bg: #232328;
+      --tag-text: #9b9ba6;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      padding: 60px 24px 80px;
+    }
+
+    header {
+      max-width: 780px;
+      margin: 0 auto 48px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .grid {
+      max-width: 780px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover { border-color: #3a3a42; }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--tag-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.3;
+      flex: 1;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      padding: 3px 9px;
+      background: var(--tag-bg);
+      border-radius: 99px;
+      font-size: 11px;
+      color: var(--tag-text);
+      font-weight: 500;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.15s;
+    }
+
+    .btn:hover { opacity: 0.8; }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-ghost {
+      background: var(--tag-bg);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    .cmd {
+      background: #111114;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 12px;
+      color: #a9a9c0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .cmd-text { flex: 1; overflow-x: auto; white-space: nowrap; }
+
+    .copy-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 13px;
+      padding: 2px 4px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      transition: color 0.15s;
+    }
+
+    .copy-btn:hover { color: var(--text); }
+    .copy-btn.copied { color: #7abf7a; }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    .status-dot.static { background: #7abf7a; }
+    .status-dot.server { background: #f0a04a; }
+    .status-dot.cli { background: #6b8fd4; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Projects</h1>
+  <p>Local dev hub — CL folder</p>
+</header>
+
+<div class="grid">
+
+  <!-- Focus Timer -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">⏱</div>
+      <div class="card-title">Focus Timer</div>
+      <span class="status-dot static" title="Static file — opens directly"></span>
+    </div>
+    <div class="card-desc">Minimal Pomodoro-style timer with a task list. Set a 30, 60, or 90 minute focus block and track tasks.</div>
+    <div class="card-tags">
+      <span class="tag">HTML</span>
+      <span class="tag">Vanilla JS</span>
+      <span class="tag">Static</span>
+    </div>
+    <div class="card-actions">
+      <a class="btn btn-primary" href="https://cl-focus-timer.vercel.app" target="_blank">Open</a>
+    </div>
+  </div>
+
+  <!-- Agency Dashboard -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📊</div>
+      <div class="card-title">Agency Dashboard</div>
+      <span class="status-dot server" title="Requires dev server"></span>
+    </div>
+    <div class="card-desc">React + Vite dashboard. Run the dev server, then open on localhost.</div>
+    <div class="card-tags">
+      <span class="tag">React</span>
+      <span class="tag">Vite</span>
+      <span class="tag">TypeScript</span>
+      <span class="tag">Tailwind</span>
+    </div>
+    <div class="card-actions">
+      <a class="btn btn-primary" href="https://cl-agency-dashboard.vercel.app" target="_blank">Open</a>
+    </div>
+  </div>
+
+  <!-- Creative Retreat Generator -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🗺</div>
+      <div class="card-title">Creative Retreat Generator</div>
+      <span class="status-dot server" title="Requires dev server"></span>
+    </div>
+    <div class="card-desc">Next.js app for generating creative retreat locations with maps. Run the dev server to use.</div>
+    <div class="card-tags">
+      <span class="tag">Next.js</span>
+      <span class="tag">React</span>
+      <span class="tag">Leaflet</span>
+      <span class="tag">TypeScript</span>
+    </div>
+    <div class="card-actions">
+      <a class="btn btn-primary" href="https://cl-creative-retreat-generator.vercel.app" target="_blank">Open</a>
+    </div>
+  </div>
+
+  <!-- Flight Bot -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">✈️</div>
+      <div class="card-title">Flight Alert Bot</div>
+      <span class="status-dot cli" title="CLI / Python script"></span>
+    </div>
+    <div class="card-desc">Python script that monitors flights and logs alerts. Runs from the terminal.</div>
+    <div class="card-tags">
+      <span class="tag">Python</span>
+      <span class="tag">CLI</span>
+    </div>
+    <div class="cmd">
+      <span class="cmd-text">cd flight-bot && python flight_bot.py</span>
+      <button class="copy-btn" onclick="copyCmd(this, 'cd ~/Desktop/CL/flight-bot && python flight_bot.py')">Copy</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function copyCmd(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1800);
+    });
+  }
+</script>
+
+</body>
+</html>

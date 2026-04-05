@@ -1,0 +1,7 @@
+node_modules/
+.DS_Store
+.vercel
+focus-timer/
+agency-dashboard/
+creative-retreat-generator/
+flight-bot/
