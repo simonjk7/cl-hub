@@ -1,6 +1,9 @@
 node_modules/
 .DS_Store
 .vercel
+.next/
+.env.local
+*.tsbuildinfo
 focus-timer/
 agency-dashboard/
 creative-retreat-generator/
